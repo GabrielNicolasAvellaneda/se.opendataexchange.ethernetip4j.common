@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ethernet4J as Plug-in
+Bundle-SymbolicName: se.opendataexchange.ethernetip4j.common
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: se.opendataexchange.ethernetip4j,
+ se.opendataexchange.ethernetip4j.clx,
+ se.opendataexchange.ethernetip4j.exceptions,
+ se.opendataexchange.ethernetip4j.pdt,
+ se.opendataexchange.ethernetip4j.segments,
+ se.opendataexchange.ethernetip4j.services,
+ se.opendataexchange.ethernetip4j.ucmm,
+ se.opendataexchange.ethernetip4j.udt

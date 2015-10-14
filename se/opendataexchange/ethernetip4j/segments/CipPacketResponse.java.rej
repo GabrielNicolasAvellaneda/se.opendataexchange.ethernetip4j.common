@@ -1,0 +1,22 @@
+--- src/se/opendataexchange/ethernetip4j/segments/CipPacketResponse.java	(revision 7)
++++ src/se/opendataexchange/ethernetip4j/segments/CipPacketResponse.java	(working copy)
+@@ -116,13 +116,15 @@
+ 			throw new InvalidParameterException("The IOI word length did not match the amount of IOI which was processed. Error code: 0x26");
+ 		case 0x00:
+ 			return true;
++		case (byte)0x01:
+ 		case (byte) 0xFF:
+ 			StringBuilder sb = new StringBuilder();
+-			for(int i=2; i<6; i++)
+-				sb.append(HexConverter.byte2hex(buffer.getByte(offset + i))).append(" ");
+-			throw new OtherWithExtendedCodeException("Error with extended status. Error code: 0xFF. Bytes: " + sb.toString());					
++			for(int i=2; i<6; i++) {
++					sb.append(HexConverter.byte2hex(buffer.getByte(offset + i))).append(" ");
++			}
++			throw new OtherWithExtendedCodeException("Error with extended status. Error code: "+HexConverter.byte2hex(error)+". Bytes: " + sb.toString());
+ 		default:
+-			throw new OtherWithExtendedCodeException("Error with extended status: "+error);
++			throw new OtherWithExtendedCodeException("Unknown Error: "+HexConverter.byte2hex(error));
+ 		}
+ 	}
+ 	
